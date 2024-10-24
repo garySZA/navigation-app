@@ -2,7 +2,7 @@
 #
 .DS_Store
 
-/android/app/debug.keystore
+./android/app/debug.keystore
 
 # Xcode
 #
@@ -34,7 +34,6 @@ local.properties
 *.hprof
 .cxx/
 *.keystore
-!debug.keystore
 
 # node.js
 #

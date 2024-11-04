@@ -6,8 +6,7 @@ import { PaperProvider } from 'react-native-paper';
 
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
-
-import { StackNavigator } from './presentation/routes';
+import { SideMenuNavigator } from './presentation/routes';
 
 const iconProvider = (props: React.ComponentProps<typeof IonIcon>) => <IonIcon { ...props }/>;
 
@@ -20,7 +19,9 @@ export const App = () => {
             }}
           >
             <SafeAreaView style={ styles.container }>
-              <StackNavigator />
+              {/* <StackNavigator /> */}
+
+              <SideMenuNavigator />
             </SafeAreaView>
           </PaperProvider>
         </NavigationContainer>

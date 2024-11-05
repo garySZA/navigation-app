@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { HamburgerMenu } from '../../components/share';
 
 export const Tab3Screen = () => {
     return (
         <View style={ styles.container }>
+            <HamburgerMenu />
             <Text> Tab3Screen </Text>
         </View>
     );

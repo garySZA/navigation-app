@@ -22,6 +22,8 @@ export const App = () => {
               {/* <StackNavigator /> */}
 
               <SideMenuNavigator />
+
+              {/* <BottomTabsNavigator /> */}
             </SafeAreaView>
           </PaperProvider>
         </NavigationContainer>

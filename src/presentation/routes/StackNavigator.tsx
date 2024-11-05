@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { HomeScreen } from '../screens/home';
 import { ProductScreen, ProductsScreen } from '../screens/products';
 import { SettingsScreen } from '../screens/settings';
+import { useNavigation } from '@react-navigation/native';
 
 
 export type RootStackParams = {
@@ -16,6 +17,15 @@ export type RootStackParams = {
 const Stack = createStackNavigator<RootStackParams>();
 
 export const  StackNavigator = () => {
+    const navigator = useNavigation();
+
+    useEffect(() => {
+        navigator.setOptions({
+            headerShown: false,
+        });
+    }, [navigator]);
+
+
     return (
         <Stack.Navigator screenOptions={{
             headerShown: true,

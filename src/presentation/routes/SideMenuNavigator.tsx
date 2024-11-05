@@ -1,17 +1,18 @@
-import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import React from 'react';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
+import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
-import { StackNavigator } from './StackNavigator';
 import { ProfileScreen } from '../screens/profile';
 import { globalColors } from '../theme';
-import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { BottomTabsNavigator } from './BottomTabsNavigator';
+import { IonIcon } from '../components/share/IonIcon';
 
 const Drawer = createDrawerNavigator();
 
 export const SideMenuNavigator = () => {
     const dimensions = useWindowDimensions();
-    
+
     return (
         <Drawer.Navigator
             drawerContent={ (props) => <CustomDrawerContent { ...props } /> }
@@ -25,8 +26,16 @@ export const SideMenuNavigator = () => {
                 drawerItemStyle: styles.drawerItem,
             }}
         >
-            <Drawer.Screen name="StackNavigator" component={ StackNavigator } />
-            <Drawer.Screen name="Profile" component={ProfileScreen} />
+            <Drawer.Screen
+                options={{ drawerIcon: ({ color }) => (<IonIcon name="bonfire-outline" color={ color }/>) }}
+                name="Tabs"
+                component={ BottomTabsNavigator }
+            />
+            <Drawer.Screen
+                options={{ drawerIcon: ({ color }) => (<IonIcon name="person-circle-outline" color={ color }/>) }}
+                name="Profile"
+                component={ProfileScreen}
+            />
         </Drawer.Navigator>
     );
 };
